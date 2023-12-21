@@ -1,0 +1,27 @@
+ion-item{
+    --ion-background-color:#fff;
+ }
+ ion-img{
+    width:50%;
+  }
+  ion-card-title{
+   color:white;
+   }
+   .ios {
+      ion-toolbar {
+        ion-title {
+          padding-inline-start: 1%;
+          text-align: left;
+      
+        }
+      }
+    }
+    .labelclass{ font-size: 1rem!important;color:white; }
+    ion-select{
+      max-width: 80% !important;
+  }
+  .select-full-width {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+  }

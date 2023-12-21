@@ -1,0 +1,189 @@
+<ion-header>
+  <ion-toolbar [color]="audiorecording ? 'danger' : isDarkMode ? 'light' : 'primary'">
+    <ion-title>
+      <ion-img [src]="image" style="width: 50%;"></ion-img>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-img [src]="flagselectedslrinput" style="width: 24px; height: 24px;"></ion-img>
+      <ion-img [src]="flagselectedslroutput" style="width: 24px; height: 24px;"></ion-img>
+      <ion-img [src]="flagselectedsltinput" style="width: 24px; height: 24px;"></ion-img>
+      <ion-img [src]="flagselectedsltoutput" style="width: 24px; height: 24px;"></ion-img>
+      <ion-button (click)="openLanguagePopover($event)" style="z-index: 1;">
+        <ion-icon name="language-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!--   
+      
+      android 
+       <ion-img [src]="image" style="width: 84%;"></ion-img>
+      <ion-buttons slot="secondary">
+<ion-img [src]="flagselectedslrinput" style="height: 16px;padding: 0 !important;margin: 0 !important;"></ion-img>
+    <ion-img [src]="flagselectedslroutput" style="height: 16px;"></ion-img>
+    <ion-img [src]="flagselectedsltinput" style="height: 16px;"></ion-img>
+    <ion-img [src]="flagselectedsltoutput" style="height: 16px;"></ion-img>
+  
+  </ion-buttons>  -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="width: 100%;">
+
+  <ion-grid class="custom-grid with-padding animate__animated animate__tada">
+    <ion-row class="centered-row">
+      <!-- Column 1: Text Area (80% or 100%) -->
+      <ion-col [size]="newMsg?.length === 0 ? '8' : '8'" class="red-column">
+
+        <ion-textarea #myitem class="custom-textarea" [(ngModel)]="newMsg" (click)="onClickKeyboard($event)"
+          (ngModelChange)="setInputFocus(newMsg)" [placeholder]="placeholdertxt"></ion-textarea>
+      </ion-col>
+
+      <!-- Column 2: Yellow (10%) -->
+      <ion-col size="2" class="yellow-column" *ngIf="newMsg?.length === 0">
+        <div class="centered-icon">
+          <ion-icon name="videocam-outline" color="white" (click)="startRecordingVideo()"></ion-icon>
+        </div>
+      </ion-col>
+
+      <!-- Column 3: Green (10%) -->
+      <ion-col size="2" class="green-column" *ngIf="newMsg?.length === 0">
+        <div class="centered-icon">
+          <ion-icon name="mic" [color]="audiorecording ? 'danger' : 'white'" (click)="startRecordingAudio()"></ion-icon>
+        </div>
+      </ion-col>
+      <!-- Column 3: Green (10%) -->
+      <ion-col size="2" class="green-column" *ngIf="newMsg?.length">
+        <div class="centered-icon">
+          <ion-icon *ngIf="newMsg?.length" name="paper-plane-outline" class="animate__animated animate__tada"
+            (click)="onSend(newMsg)"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col size="2" class="green-column" *ngIf="newMsg?.length">
+        <div class="centered-icon">
+          <ion-icon *ngIf="newMsg?.length" color="danger" name="trash-outline" (click)="deleteMessage()"></ion-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
+
+
+
+
+
+
+  <ion-list lines="none" *ngIf="mediaFiles.length" class="centered-list">
+
+
+
+
+
+
+    <!--<ion-item  *ngIf="newMsg?.length"  lines="none"  class="item-message-color animate__animated animate__pulse" (click)="stopProp($event)">
+  <ion-label style="color:white"
+   >{{ newMsg }}</ion-label>
+   <ion-icon  *ngIf="newMsg?.length" name="paper-plane-outline" class="glowing-icon animate__animated animate__tada" (click)="onSend(newMsg)" slot="end"></ion-icon>
+
+
+  
+ </ion-item>-->
+    <!-- <div class="center-content" *ngIf="newMsg?.length">
+  <ion-item lines="none" >
+    <ion-button class="animate__animated animate__pulse" size="default" fill="solid" shape="round" color="light" (click)="onButtonClick()">
+      <span class="left-text">{{'app.sendmessage' | translate }}</span>
+      <ion-icon class="glowing-icon animate__animated animate__tada" name="paper-plane-outline" slot="end"></ion-icon>
+    </ion-button>
+  </ion-item>
+</div>-->
+
+    <ion-item *ngIf="mediaFiles.length" style="width: 100%;">
+      <ion-list style="width: 100%;">
+        <ion-item lines="none" class="item-background-files" *ngFor="let f of mediaFiles"
+          [attr.color]="f.name === currentselect ? 'primary' : ''" (click)="selectFile(f)">
+          <!--  <audio controls oncanplaythrough="myFunction(f)">-->
+          <ion-label text-wrap style="color: white;">{{f.name}}</ion-label>
+          <!-- <source src={{f}} type="audio/wav">-->
+          <!-- </audio> -->
+          <!--<ion-button slot="end" (click)="deleteRecording(f)" fill="clear" color="danger">
+            <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+          </ion-button>-->
+          <!--*ngIf="!f.name.endsWith('mp4') || !f.name.endsWith('wav') " <ion-icon name="play-outline" slot="start" (click)="playFile(f)" [attr.color]="f === currentselect ? 'secondary' : 'primary'"></ion-icon>-->
+          <!--  *ngIf="audiovalid && f.name.endsWith('m4a') || f.name.endsWith('wav') || f.name.endsWith('mp3')"... has this below [attr.color]="f.name === currentselect ? 'secondary' : 'primary'"-->
+          <ion-icon class="animate__animated animate__tada" name="paper-plane-outline" slot="end"
+            (click)="onSendFile(f)" style="color: white;"></ion-icon>
+          <ion-icon name="play-outline" style="color: white;" slot="end" (click)="selectFile(f)"></ion-icon>
+          <ion-icon name="trash-outline" slot="end" (click)="deleteFile(f,true)" color="danger"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+  </ion-list>
+
+  <ion-card id="myCard" class="ion-text-center">
+    <!-- <iframe id="cblt_content" name= "eventsPage" src="../../assets/test.webm" >
+    </iframe>-->
+    <ion-grid [hidden]="!messages?.length">
+      <ion-row *ngFor="let message of messages" tappable (click)="messageClick(message.msg)">
+        <ion-col size="12" class="message my-message">
+          <span>{{message.msg}}<img src="../../assets/sound.gif" class="imgsound" *ngIf="isPlayingMessage"><img
+              src="../../assets/play2.png" class="imgsound" *ngIf="!isPlayingMessage"></span>
+          <div class="time" text-right><br>
+            {{message.createdAt | date:'short'}}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div #renderContainer [hidden]="buttonsource != 'VIDEO' || audiorecording" width="100%" height="100%"></div>
+    <audio #myaudio controls autoplay [hidden]="!selectedAudio?.length" style="padding-top: 10px;"
+      controlsList="nodownload">
+
+    </audio>
+
+    <video #myvideo [hidden]="!selectedVideo?.length" width="100%" height="100%" controls playsinline autoplay
+      controlsList="nodownload">
+    </video>
+    <img *ngIf="!selectedAudio?.length && !selectedVideo?.length && audiorecording == true"
+      (click)="startRecordingAudio()" src="../../assets/microphone.png" alt="ion">
+    <ion-card-header *ngIf="audiorecording == true">
+      <ion-card-title style="color:red;">{{'app.recordaudio' | translate }} {{duration}}s </ion-card-title>
+      <ion-button [color]="audiorecording ? 'danger' : 'primary'" expand="block" (click)="startRecordingAudio()">
+        <ion-icon slot="end" name="mic-outline"></ion-icon>
+      </ion-button>
+    </ion-card-header>
+  </ion-card>
+  <ion-card (click)="startPlayingAvatar()" *ngIf="glosstext.length"
+    style="background-color: #1d1d4f; color: white; max-height: 102px;">
+    <ion-card-title color="light" class="ion-text-center" size="small"
+      style="background-color: #1d1d4f; color: white;">{{ glosstext }}</ion-card-title>
+    <ion-card-content class="no-padding" style="display: flex; flex-direction: column; justify-content: flex-start;">
+      <img src="../../assets/play2.png" *ngIf="playavatar == false" class="imgsound" style="align-self: flex-end;">
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+
+
+  <ion-button #offScreenFocusElement class="keyboard-focus-bugfix">Test</ion-button>
+
+</ion-content>
+<ion-footer>
+
+  <ion-toolbar>
+    <ion-title>{{'app.mediaoutput' | translate }}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-segment scrollable (ionChange)="segmentChanged($event)" [(ngModel)]="buttonsource">
+        <ion-segment-button value="VIDEO">
+          <ion-icon name="person"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="TEXT">
+          <ion-icon name="text"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="AUDIO">
+          <ion-icon name="volume-high-outline"></ion-icon>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

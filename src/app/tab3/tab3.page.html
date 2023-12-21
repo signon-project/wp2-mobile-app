@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar [color]="isDarkMode ? 'light' : 'primary'">
+    <ion-title>
+      <ion-img [src]="image"></ion-img>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+      <ion-card-content>
+       <p style="color:white;padding-top: 30px;font-size: medium;">
+        {{'app.about1' | translate}} <b><i>{{version}}</i></b> {{'app.about2' | translate}}
+        {{'app.about3' | translate}}   <a class="bright-blue" href="#" onclick="window.open('https://signon-project.eu', '_system', 'location=yes'); return false;">SignON Project</a>  {{'app.about4' | translate}}<br><br>
+        {{'app.about5' | translate}}
+         <!-- <a  *ngIf="userlang == 'ENG'"class="bright-blue" href="#"  onclick="window.open('https://drive.google.com/file/d/1Fnifn5-L-CweTsOwVi-dgCuk4cZkjO_d/view?usp=drive_link', '_system', 'location=yes'); return false;">SignON App</a>
+          <a  *ngIf="userlang == 'NLD'"class="bright-blue" href="#"  onclick="window.open('https://drive.google.com/file/d/1DIDqFqikoz6Q6qxKuCZJtn8c1T5nwaBd/view?usp=drive_link', '_system', 'location=yes'); return false;">SignON App</a>
+          <a  *ngIf="userlang == 'GLE'"class="bright-blue" href="#"  onclick="window.open('https://drive.google.com/file/d/1qGg-ySuvJ5oF01pUxqMkVp_9WSeHkRcB/view?usp=drive_link', '_system', 'location=yes'); return false;">SignON App</a>
+          <a  *ngIf="userlang == 'SPA'"class="bright-blue" href="#"  onclick="window.open('https://drive.google.com/file/d/1GaKojk0moI9cFtLrccwte8OiSStme6CW/view?usp=drive_link', '_system', 'location=yes'); return false;">SignON App</a>
+-->
+<a  class="bright-blue" href="#"  onclick="window.open('https://drive.google.com/file/d/1kI8TBV97-oYd4_rTYwiPYtDiBQvcjKSo/view?usp=share_link', '_system', 'location=yes'); return false;">SignON App</a>
+
+          <br><br>
+          No. 101017255. © SignON Consortium, 2023 <br>
+       </p> 
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

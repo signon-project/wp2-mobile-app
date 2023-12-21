@@ -1,0 +1,320 @@
+img{
+  padding-top: 20px;
+    width:30%;
+    }
+    .containerbutton {
+      display: flex;
+       flex-direction: row;
+       justify-content: center;
+       align-items: center;
+   
+   }
+  
+  .ios {
+    ion-toolbar {
+      ion-title {
+        padding-inline-start: 1%;
+        text-align: left;
+    
+      }
+    }
+  
+  }
+  .highlight {
+    background-color: #FFFF33 !important;
+ }
+  ion-input {
+    --placeholder-color:rgb(0, 0, 0);     /* placeholder text color */
+    color: var(--ion-color-primary); /* input text color to primary */
+    ---placeholder-font-style: xx-small !important;
+  }
+/* Container for the grid */
+.custom-grid {
+  border: 3px solid white;
+  color: white;
+  /*box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);*/
+  border-radius: 10px !important;
+  width: 95%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the grid horizontally */
+  height: 80px; /* Set a fixed height or adjust as needed */
+}
+/* Add padding to the top of the grid */
+.with-padding {
+  margin-top: 10px; /* Adjust the value as needed to control the amount of padding */
+}
+/* Column 1: Red (80%) */
+.red-column {
+ /* background-color: red;*/
+  height: 100%; /* Make the column the same height as the grid */
+}
+.no-padding {
+  padding: 0;
+  margin: 0;
+}
+/* Column 2: Yellow (10%) */
+.yellow-column {
+  /*background-color: yellow;*/
+  color:white;
+  height: 100%; /* Make the column the same height as the grid */
+}
+
+/* Column 3: Green (10%) */
+.green-column {
+ /* background-color: green;*/
+ color:white;
+  height: 100%; /* Make the column the same height as the grid */
+}
+
+  .item-background-color {
+    border: 4px solid white;
+    color: white;
+    border-radius: 1px !important;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+  }
+  
+/* Style for the icon buttons container */
+.icon-buttons-container {
+  display: flex; /* Use flex display for the container */
+  align-items: center; /* Vertically center the icon buttons within the container */
+  justify-content: flex-end; /* Align the icon buttons to the end within the container */
+  flex: 1; /* Allow the icon buttons container to grow and take up available space */
+}
+
+/* Add margin between icon buttons */
+.icon-buttons-container ion-icon {
+  margin-left: 10px; /* Adjust the margin between icon buttons */
+  font-size: 16px; /* Adjust the font size as needed */
+}
+  .centered-list {
+    width: 100%;
+    margin: 0 auto; /* Center the element horizontally */
+  }
+
+
+  .custom-textarea {
+    color: white;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+
+  /* Center the icon vertically and horizontally */
+.centered-icon {
+  padding:0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensure the icon div takes up the full height of the column */
+}
+
+/* CSS to increase the size of the icon */
+.centered-icon ion-icon {
+  font-size: 28px; /* Adjust the font size as needed to make the icon larger */
+}
+/* Center the contents vertically within the row */
+.centered-row {
+  align-items: center;
+}
+ /* .item-message-color{
+     background: var(--ion-color-secondary);
+     border-radius: 5px !important;
+     padding-left: 5px;
+     padding-right: 5px;
+     padding-bottom: 5px;
+     padding-top: 5px;
+   }*/
+   .center-content {
+    margin-top: 20px;     /* Different margin on each side */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .white-text {
+    color: white !important;
+  }
+  .left-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding-right: 10px; /* Add some space between text and icon */
+  }
+  /* Adjust the min-width value as needed */
+.custom-popover {
+  min-width: 800px;
+}
+  /* YourComponent.scss */
+.custom-popover-modal {
+  /* Custom styling for the modal */
+  width: 30%; /* Set the width to 50% */
+}
+  .item-background-files{
+    --ion-item-background:#7d9797;
+    border-radius: 15px !important;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+  }
+  .imgsound{
+    max-width: 15%;
+    display: block; /* remove extra space below image */
+    float:right;
+  }
+  .keyboard-focus-bugfix {
+    display: none;
+  }
+
+ /* audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-panel {
+  background-color: #a3c2c1;
+  color: #266b69;
+}*/
+audio::-webkit-media-controls-panel{
+  background-color: #266b69;
+  }
+audio::-internal-media-controls-download-button {
+    display:none;
+}
+/* HIDE DOWNLOAD BUTTON OF VIDEO */
+video::-internal-media-controls-download-button {
+  display:none;
+}
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-panel {
+  background-color: #a3c2c1;
+  color: #266b69;
+}
+
+    #record{
+      width:50px;
+      height:50px;
+    }
+    #record::part(native) {
+        color:red;
+        border-radius:30px;
+      }
+      ion-card {
+        height: 60%;
+        background-color: var(--ion-color-primary); /* input text color to primary */
+        }
+  
+      .msg-btn{
+        --padding-start: 0.5em;
+        --padding-end:0.5em;
+      }
+      .message{
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 4px;
+        white-space: pre-wrap;
+      }
+      .other-message{
+        background: var(--ion-color-primary);
+        color:white;
+      }
+      .my-message{
+        background: var(--ion-color-secondary);
+        color:white;
+      }
+      .message-input{
+        width: 100%;
+        border:1px solid var(--ion-color-primary);
+        border-radius:10px;
+        background-color:white;
+        resize:none;
+        padding-left:10px;
+        padding: 10px;
+      }
+      ion-card-title{
+        background:var(--ion-color-primary);
+        }
+        #cblt_content {
+          display: block;
+          width: 100%;
+          height: 100%;
+          padding-top: 200px; /* and this */
+          box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          border: 0;
+      }
+      #renderContainer {
+        padding: 0; /* Remove any padding */
+        margin: 0; /* Remove any margins */
+      }
+          /* my-component.page.scss */
+ion-icon {
+  transition: color 0.3s ease-in-out; /* Apply a smooth color transition */
+}
+ion-icon.glowing-icon {
+  /* Set the base color for the icon (change this to match your design) */
+  color: var(--ion-color-warning);
+
+  /* ... your existing styles ... */
+
+  border-radius: 30%; /* Circular shape */
+  
+  /* Add a yellow glow effect with rounded corners using a box-shadow */
+  box-shadow: 0 0 10px 5px #f0c419, 0 0 10px 5px rgba(240, 196, 25, 0.4); /* Change the color and size as needed */
+  transition: box-shadow 0.3s ease-in-out; /* Apply a smooth transition to the glow */
+
+  /* Optionally, adjust other icon styling properties */
+  font-size: 24px;
+  /* Add more styling properties as nee*/
+}
+
+/* Apply the glow effect when the icon is hovered over */
+ion-icon.glowing-icon:hover {
+  box-shadow: 0 0 15px 10px #f0c419; /* Increase the size of the glow on hover */
+}
+/* Apply styles to the ion-input wrapper */
+ion-input {
+  position: relative;
+}
+
+.clear-button {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.3s ease-in-out;
+
+  ion-icon {
+    font-size: 1rem;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+/* your-component.page.scss */
+.media-files-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.media-files-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.media-files-item ion-label {
+  flex-grow: 1;
+}
+
+.media-files-icons {
+  display: flex;
+  align-items: center;
+}
+     

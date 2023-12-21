@@ -1,0 +1,138 @@
+<ion-header>
+  <ion-toolbar [color]="isDarkMode ? 'light' : 'primary'">
+    <ion-title>
+      <ion-img [src]="image" (click)="onServe()"></ion-img>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-title  class="ion-text-center" size="small">{{'app.preferences' | translate }}</ion-card-title>
+    <ion-card-content>
+      <ion-list style="padding: 0px;">
+        <ion-list-header lines="inset">
+          <ion-label color="primary" class="labelclass">{{'app.languageinput' | translate }}</ion-label>
+        </ion-list-header>
+        <ion-item style="padding: 0px;" lines="none">
+          <ion-label size="small">{{'app.selectsign' | translate }}</ion-label>
+          <ion-select [(ngModel)]="langinputsign" (ngModelChange)="onChangeInputSign($event)">
+            <ion-select-option color="secondary"   value="BFI" >{{'app.bsl' | translate }}
+            </ion-select-option>
+            <ion-select-option color="secondary"   value="DSE" >{{'app.dsl' | translate }}
+            </ion-select-option>
+            <ion-select-option color="secondary"   value="VGT">{{'app.fsl' | translate }}
+            </ion-select-option>
+            <ion-select-option color="secondary"   value="ISG" >{{'app.isl' | translate }}
+            </ion-select-option>
+            <ion-select-option color="secondary"   value="SSP" >{{'app.ssl' | translate }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label size="small">{{'app.speechinput' | translate }} </ion-label>
+          <ion-select [(ngModel)]="langinputtxt" (ngModelChange)="onChangeInputTxt($event)">
+            <ion-select-option color="secondary" value="DUT" >{{'app.dutch' | translate }}
+            </ion-select-option>
+            <ion-select-option color="secondary" value="ENG">{{'app.engirish' | translate }}
+            </ion-select-option>
+            <ion-select-option color="secondary" value="GLE" >{{'app.irish' | translate }}
+            </ion-select-option>
+            <ion-select-option color="secondary" value="SPA">{{'app.spanish' | translate }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-list-header lines="inset">
+          <ion-label color="primary" class="labelclass">{{'app.languageoutput' | translate }}</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-label  size="small">{{'app.selectsign' | translate }}</ion-label>
+          <ion-select [(ngModel)]="langoutputsign" (ngModelChange)="onChangeOutputSign($event)" style="float: none;overflow: hidden;">
+            <ion-select-option color="secondary"  value="BFI" >{{'app.bsl' | translate }}
+            </ion-select-option>
+            <ion-select-option color="secondary"   value="DSE" >{{'app.dsl' | translate }}
+            </ion-select-option>
+            <ion-select-option color="secondary"  value="VGT" >{{'app.fsl' | translate }}
+            </ion-select-option>
+            <ion-select-option color="secondary"   value="ISG" >{{'app.isl' | translate }}
+            </ion-select-option>
+            <ion-select-option color="secondary"  value="SSP" >{{'app.ssl' | translate }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label  size="small">{{'app.spoken' | translate }} </ion-label>
+          <ion-select [(ngModel)]="langoutputtxt" (ngModelChange)="onChangeOutputTxt($event)">
+            <ion-select-option color="secondary" value="DUT" >{{'app.dutch' | translate }}
+            </ion-select-option>
+            <ion-select-option color="secondary" value="ENG" >{{'app.engirish' | translate }}
+            </ion-select-option>
+            <ion-select-option color="secondary" value="GLE" >{{'app.irish' | translate }}
+            </ion-select-option>
+            <ion-select-option color="secondary" value="SPA" >{{'app.spanish' | translate }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-list >
+        <ion-radio-group [(ngModel)]="tts">
+          <ion-list-header>
+            <ion-label color="primary" class="labelclass">{{'app.spoken' | translate }} </ion-label>
+          </ion-list-header>
+
+          <ion-item>
+            <ion-label>{{'app.defaultspeech' | translate }}</ion-label>
+            <ion-radio value="native" (ionChange)="radioGroupChange($event)"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>{{'app.naturalspeech' | translate }}</ion-label>
+            <ion-radio value="signon" (ionChange)="radioGroupChange($event)"></ion-radio>
+          </ion-item>
+
+        </ion-radio-group>
+      </ion-list>
+      <ion-list >
+        <ion-radio-group [(ngModel)]="voice">
+          <ion-list-header>
+            <ion-label color="primary" class="labelclass">{{'app.speechinput' | translate }}</ion-label>
+          </ion-list-header>
+
+          <ion-item>
+            <ion-label>{{'app.defaultrecognition' | translate }}</ion-label>
+            <ion-radio value="native" (ionChange)="radioGroupChange($event)"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>{{'app.signonrecognition' | translate }}</ion-label>
+            <ion-radio value="signon" (ionChange)="radioGroupChange($event)"></ion-radio>
+          </ion-item>
+
+        </ion-radio-group>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-label text-wrap class="ion-text-primary">{{ 'app.toggledarkmode' | translate }}</ion-label>
+          <ion-toggle [(ngModel)]="isDarkMode" (ionChange)="onToggleColorScheme($event)" slot="end"></ion-toggle>
+        </ion-item>
+        <ion-item (click)="onDisplay('display')">
+          <ion-label text-wrap class="ion-text-primary">{{ 'app.systemdisplay' | translate }}</ion-label>
+          <ion-icon name="desktop" color="primary" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item (click)="onDisplay('sound')">
+          <ion-label text-wrap class="ion-text-primary">{{ 'app.systemsound' | translate }}</ion-label>
+          <ion-icon name="volume-high" color="primary" slot="end"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer *ngIf="serverdisp">
+  <ion-item lines="none" text-wrap>
+    <ion-label position="stacked">SignON Server </ion-label>
+    <ion-input type="text" style="font-size: small;" [(ngModel)] = "endpoint"></ion-input>
+  </ion-item>
+  <!--<ion-button expand="full" (click)="save(true)">Save Settings</ion-button>-->
+</ion-footer>
