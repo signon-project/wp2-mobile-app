@@ -1,0 +1,7 @@
+{
+  "name": "signonMobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

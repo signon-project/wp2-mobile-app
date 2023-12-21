@@ -1,0 +1,6 @@
+{
+	"appId": "io.mac.signon",
+	"appName": "signonMobile",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
